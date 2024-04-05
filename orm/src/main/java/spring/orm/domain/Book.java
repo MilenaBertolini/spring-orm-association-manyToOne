@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Item {
+public class Book {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,5 +17,5 @@ public class Item {
     String nome;
 
     @ManyToOne
-    Categoria categoria;
+    Library library;
 }

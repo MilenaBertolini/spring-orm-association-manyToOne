@@ -1,9 +1,9 @@
 package spring.orm.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import spring.orm.domain.Item;
+import spring.orm.domain.Book;
 
-public interface ItemRepository extends CrudRepository<Item, Long> {
+public interface BookRepository extends CrudRepository<Book, Long> {
 
     
 } 

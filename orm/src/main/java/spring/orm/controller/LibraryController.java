@@ -12,39 +12,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import spring.orm.domain.Categoria;
-import spring.orm.service.CategoriaService;
+import spring.orm.domain.Library;
+import spring.orm.service.LibraryService;
 
 @RestController
-@RequestMapping("/categoria")
-public class CategoriaController {
+@RequestMapping("/library")
+public class LibraryController {
     @Autowired
-        CategoriaService service;
+        LibraryService service;
 
         @GetMapping
-        public List<Categoria> getAll() {
-                // Vemos aqui uma chamada à camada de serviço para buscar as categorias.
-                // A camada de serviço não conhece o HTTP.
-                // A camada de serviço lida com questões de negócio, o que inclui acesso aos dados da aplicação
-                // A camada de controle lida com questões de HTTP
-                List<Categoria> items = service.getAll();
+        public List<Library> getAll() {
+                List<Library> items = service.getAll();
                 return items;
         }
 
         @GetMapping("{id}")
-        public Categoria getById(@PathVariable("id") Long id) {
+        public Library getById(@PathVariable("id") Long id) {
                 return service.getById(id);
         }
 
         @PostMapping
-        public Categoria create(@RequestBody Categoria item) {
-                Categoria categoria = service.create(item);
+        public Library create(@RequestBody Library library) {
+                Library categoria = service.create(library);
                 return categoria;
         }
 
         @PutMapping("{id}")
-        public Categoria update(@PathVariable("id") Long id, @RequestBody Categoria item) {
-                return service.update(id, item);
+        public Library update(@PathVariable("id") Long id, @RequestBody Library library) {
+                return service.update(id, library);
         }
 
         @DeleteMapping("{id}")

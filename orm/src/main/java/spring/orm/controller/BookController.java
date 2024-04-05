@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import spring.orm.service.ItemService;
-import spring.orm.domain.Item;
+import spring.orm.service.BookService;
+import spring.orm.domain.Book;
 
 @RestController
-@RequestMapping("/item")
-public class ItemController {
+@RequestMapping("/book")
+public class BookController {
      @Autowired
-        ItemService service;
+        BookService service;
 
         @GetMapping
-        public List<Item> getAll() {
+        public List<Book> getAll() {
                 return service.getAll();
         }
 
         @GetMapping("{id}")
-        public Item getById(@PathVariable("id") Long id) {
+        public Book getById(@PathVariable("id") Long id) {
                 return service.getById(id);
         }
 
         @PostMapping
-        public Item create(@RequestBody Item item) {
-                return service.create(item);
+        public Book create(@RequestBody Book book) {
+                return service.create(book);
         }
 
         @PutMapping("{id}")
-        public Item update(@PathVariable("id") Long id, @RequestBody Item item) {
-                return service.update(id, item);
+        public Book update(@PathVariable("id") Long id, @RequestBody Book book) {
+                return service.update(id, book);
         }
 
         @DeleteMapping("{id}")

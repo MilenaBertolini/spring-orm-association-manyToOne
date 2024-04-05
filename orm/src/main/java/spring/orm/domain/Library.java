@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Categoria {
+public class Library {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
